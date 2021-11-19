@@ -48,6 +48,14 @@ public class Alumno {
      * en su cuenta de Github en formato de 7 caracateres
      */
     public String getNombreUsuarioGithub() {
-        return nombre.substring(0, 3) + numeroMatricula.substring(0, 4);
+        String nombreTemporal = nombre;
+        String numeroMatriculaTemporal = numeroMatricula;
+        if(nombreTemporal.length() <= 2){
+            nombreTemporal = nombreTemporal + "ab";
+        }
+        if (numeroMatriculaTemporal.length() <= 3){
+            numeroMatriculaTemporal = numeroMatriculaTemporal + "123";    
+        }    
+        return nombreTemporal.substring(0, 3) + numeroMatriculaTemporal.substring(0, 4);
     }
 }
