@@ -11,8 +11,14 @@ public class Alumno {
      * Crea un alumno nuevo
      */
     public Alumno(String nombreCompleto, String numeroMatriculaAlumno, int edadAlumno) {
-        nombre = nombreCompleto;
-        numeroMatricula = numeroMatriculaAlumno;
+        if(nombreCompleto.length() <= 2){
+            System.out.println(" ERROR /  La longitud del nombre no puede ser menor que 3" );
+        }
+        nombre = nombreCompleto; 
+        if (numeroMatriculaAlumno.length() <= 3){
+            System.out.println(" ERROR / La longitud de la matrícula no puede ser menor que 4 ");    
+        }
+        numeroMatricula = numeroMatriculaAlumno;    
         edad = edadAlumno;
     }
 
