@@ -45,17 +45,24 @@ public class Alumno {
     
     /**
      * Devuelve el nombre de usuario que el alumno debe configurar
-     * en su cuenta de Github en formato de 7 caracateres
+     * en su cuenta de Github en formato de 7 caracateres 
+     * substring(0, 3) + numeroMatriculaGit.substring(0, 4);
      */
     public String getNombreUsuarioGithub() {
-        String nombreTemporal = nombre;
-        String numeroMatriculaTemporal = numeroMatricula;
-        if(nombreTemporal.length() <= 2){
-            nombreTemporal = nombreTemporal + "ab";
+        String nombreGit = nombre;
+        String numeroMatriculaGit = numeroMatricula;
+        if(nombreGit.length() < 3) {
+            nombreGit = nombre + "";    
         }
-        if (numeroMatriculaTemporal.length() <= 3){
-            numeroMatriculaTemporal = numeroMatriculaTemporal + "123";    
-        }    
-        return nombreTemporal.substring(0, 3) + numeroMatriculaTemporal.substring(0, 4);
+        else{
+            nombreGit = nombreGit.substring(0, 3);
+        }
+        if(nombreGit.length() < 3) {
+            numeroMatriculaGit = numeroMatricula + "";    
+        }
+        else{
+            numeroMatriculaGit = numeroMatriculaGit.substring(0, 3);
+        }
+        return nombreGit + numeroMatriculaGit;
     }
 }
